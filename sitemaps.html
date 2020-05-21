@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Sitemaps</h1>
+
+
+<script src="https://sites.google.com/site/script4shared/sitemap.js"></script><script src="https://eminemagealbums.blogspot.com/feeds/posts/default?max-results=9999&amp;alt=json-in-script&amp;callback=loadtoc"></script>
+
+
+<div id="sitemap">Loading...</div>
+<script> //<![CDATA[
+var start=1;var max=150;var sitemapArr=new Array();function runsitemap(){var scpt=document.createElement('script');scpt.src='/feeds/posts/summary?alt=json&callback=sitemap&start-index='+start+'&max-results='+max;document.body.appendChild(scpt)} function sitemap(root){var elem=document.getElementById('sitemap');if(!elem)return;elem.innerHTML='';var feed=root.feed;if(feed.entry.length>0){for(var i=0;i<feed.entry.length;i++){var entry=feed.entry[i];var title=entry.title.$t;for(var j=0;j<entry.link.length;j++){if(entry.link[j].rel=="alternate"){var url=entry.link[j].href;if(url&&url.length>0&&title&&title.length>0){sitemapArr.push({'url':url,'judul':title})} break}}} if(feed.entry.length>=max){start+=max;runsitemap()} else{var print='',a=sitemapArr.sort(function(a,b){return a.judul>b.judul?1:-1});for(var x=0;x<a.length;x++){print+='<li><a href=\"'+a[x].url+'\" title=\"'+a[x].judul+'\">'+a[x].judul+'</a></li>'} elem.innerHTML='<div class=\"judul\">Total Post: '+a.length+'</div><ol>'+print+'</ol>'}}} runsitemap();
+//]]> </script>
+
+</body>
+</html>
